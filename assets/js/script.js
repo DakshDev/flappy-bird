@@ -98,7 +98,7 @@ function gameOver(){
 }
 
 function isCollabToBoard(){
-    if(board.clientHeight+40 <= flappyObj.initTopPerceVal){
+    if(board.clientHeight <= flappyObj.initTopPerceVal){
         flappyBird.style.transition = '';
         gameOver();
     }
