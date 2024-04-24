@@ -9,6 +9,8 @@ let flappyObj = {
     flappyAfterRotate: 20,
     isAnimiRun : true,
     isGameStart : false,
+    pillarImageVal : -500,
+    isPillarMove : false,
 }
 
 
@@ -26,6 +28,9 @@ function animationFlappy(ctime){
     if(flappyObj.isAnimiRun === true){
         flappyBottomControl();
         isCollabToBoard();
+    }
+    if(flappyObj.isPillarMove === true){
+        pillarsMove();
     }
 }
 window.requestAnimationFrame(animationFlappy);
@@ -56,6 +61,7 @@ function coltroll(){
     flappyBird.style.animation = "none";
     flappyObj.isGameStart = true;
     flappyObj.isAnimiRun = false;
+    flappyObj.isPillarMove = true;
     flappyTopControl();
     setTimeout(()=>{flappyObj.isAnimiRun = true},200)
 }
@@ -94,7 +100,10 @@ function gameOver(){
     flappyObj.isGameStart = false;
     flappyBird.style.rotate = `0deg`;
     flappyBird.style.animation = "flappyAnimi 1s infinite";
+    flappyObj.pillarImageVal = 500;
+    flappyObj.isPillarMove = false;
     flappyBirdInitial();
+    pillarFun();
 }
 
 function isCollabToBoard(){
@@ -102,4 +111,37 @@ function isCollabToBoard(){
         flappyBird.style.transition = '';
         gameOver();
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Pillars Logic
+
+
+function pillarFun(){
+let pillarImage = document.querySelectorAll("[pillars] div img");
+let topPillar = document.querySelector("[pillars] [top]");
+let BottomPillar = document.querySelector("[pillars] [bottom]");
+
+    for(let i=0; i<pillarImage.length; i++){
+        pillarImage[i].style.right = `${flappyObj.pillarImageVal}px`;
+    }
+}
+
+function pillarsMove(){
+    flappyObj.pillarImageVal+= 4;
+    pillarFun();
 }

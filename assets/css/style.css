@@ -57,22 +57,28 @@ html,body{
     width: 100%;
     height: 85%;
     z-index: 99;
+    display: grid;
+    grid-gap: 180px 0px;
 }
 
 [pillars] > [top]{
-    rotate: 180deg;
-    position: absolute;
-    right: 0;
+    position: relative;
     display: flex;
-    top: 0px;
+    justify-content: flex-end;
+    gap: 0px 250px;
 }
 [pillars] > [bottom]{
-    position: absolute;
-    right: 0;
+    position: relative;
     display: flex;
-    bottom: 0px;
+    justify-content: flex-end;
+    gap: 0px 250px;
 }
 
 img{
     width: 80px;
+}
+
+[pillars] div img{
+    position: relative;
+    right: -500px;
 }
