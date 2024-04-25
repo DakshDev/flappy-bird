@@ -58,6 +58,7 @@ html,body{
     height: 85%;
     z-index: 99;
     display: grid;
+    align-content: center;
     grid-gap: 180px 0px;
 }
 
