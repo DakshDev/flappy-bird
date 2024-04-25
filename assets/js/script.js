@@ -100,7 +100,7 @@ function gameOver(){
     flappyObj.isGameStart = false;
     flappyBird.style.rotate = `0deg`;
     flappyBird.style.animation = "flappyAnimi 1s infinite";
-    flappyObj.pillarImageVal = 500;
+    flappyObj.pillarImageVal = -500;
     flappyObj.isPillarMove = false;
     flappyBirdInitial();
     pillarFun();
