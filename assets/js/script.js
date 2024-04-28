@@ -31,6 +31,7 @@ function animationFlappy(ctime){
     }
     if(flappyObj.isPillarMove === true){
         pillarsMove();
+        collabToPillar();
     }
 }
 window.requestAnimationFrame(animationFlappy);
@@ -98,7 +99,6 @@ function gameOver(){
     increasePillar();
     increasePillar();
 
-
     flappyObj.initTopPerceVal = board.clientHeight / 2 - flappyBird.clientHeight;
     flappyObj.initLeftPercVal = 30;
     flappyObj.flappyBeforeRotate = -20;
@@ -114,7 +114,7 @@ function gameOver(){
 }
 
 function isCollabToBoard(){
-    if(board.clientHeight <= flappyObj.initTopPerceVal){
+    if(board.clientHeight-60 <= flappyObj.initTopPerceVal){
         flappyBird.style.transition = '';
         gameOver();
     }
@@ -135,8 +135,6 @@ function isCollabToBoard(){
 let pillarIncVal = 0;
 
 function pillarFun(){
-    
-
     let pillarImage = document.querySelectorAll("[pillars] div img");
 
     for(let i=0; i<pillarImage.length; i++){
@@ -147,7 +145,6 @@ function pillarFun(){
         increasePillar();
         pillarIncVal++;
     }
-
 }
 
 
@@ -176,7 +173,69 @@ function increasePillar(){
 
     topPillar.lastElementChild.style.top = `${randomNum}px`;
     BottomPillar.lastElementChild.style.top = `${randomNum}px`;
+    
 }
 increasePillar();
 increasePillar();
 increasePillar();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Is Collab with Pillars
+let val = 0;
+function collabToPillar(){
+
+    let topImg = document.querySelectorAll("[top] img");
+    let btmImg = document.querySelectorAll("[bottom] img");
+
+    
+    
+    let flappyY = Math.floor(flappyBird.getBoundingClientRect().top);
+    let flappyX = Math.floor(flappyBird.getBoundingClientRect().left) + flappyBird.clientWidth;
+
+    // Top Img
+    let topPlrX;
+    let topPlrY;
+    for(let i=0; i<topImg.length; i++){
+        topPlrX = Math.floor(topImg[val].getBoundingClientRect().left);
+        topPlrY = Math.floor(topImg[val].getBoundingClientRect().bottom);
+    }
+
+
+    // Bottom Img
+    let BtmPlrX;
+    let BtmPlrY;
+    for(let i=0; i<topImg.length; i++){
+        BtmPlrX = Math.floor(btmImg[val].getBoundingClientRect().left);
+        BtmPlrY = Math.floor(btmImg[val].getBoundingClientRect().top) - flappyBird.clientHeight;
+    }
+
+
+    if(flappyX >= topPlrX+100 || flappyX >= BtmPlrX+100){
+        val++;
+    }
+
+    if(flappyY <= topPlrY && flappyX >= topPlrX || flappyY >= BtmPlrY && flappyX >= BtmPlrX){
+        gameOver();
+        val = 0;
+    }
+    
+}
