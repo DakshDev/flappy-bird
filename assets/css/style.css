@@ -14,7 +14,7 @@ html,body{
 }
 [board]{
     width: 600px;
-    height: 600px;
+    height: 700px;
     border: 2px solid #ffffff;
     position: relative;
     overflow: hidden;
@@ -78,7 +78,7 @@ img{
 }
 
 [pillars] div img{
-    margin: 0px 125px;
+    margin: 0px 150px;
     position: relative;
     right: -500px;
 }
