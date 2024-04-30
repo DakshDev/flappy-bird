@@ -4,7 +4,6 @@ import {pillarFun, pillarsMove, increasePillar} from "./module/pillar.js";
 
 
 
-
 let board = document.querySelector("[board]");
 let innerBoard = document.querySelector("[innerBoard]");
 let flappyBird = document.querySelector("[flappy_bird]");
@@ -49,6 +48,7 @@ function animationFlappy(ctime){
     if(flappyObj.isPillarMove === true){
         pillarsMove();
         collabToPillar();
+        checkScore();
     }
 }
 window.requestAnimationFrame(animationFlappy);
@@ -70,7 +70,6 @@ controller();
 increasePillar();
 increasePillar();
 increasePillar();
-
 
 // EXPORT CODE
 export {board, innerBoard, flappyBird, flappyObj, flappyBirdInitial}

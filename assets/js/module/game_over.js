@@ -26,7 +26,7 @@ function gameOver(){
 function isCollabToBoard(){
     if(innerBoard.clientHeight <= flappyObj.initTopPerceVal - flappyBird.clientHeight){
         flappyBird.style.transition = '';
-        gameOver();
+        gameOverBox();
     }
 }
 
@@ -69,7 +69,7 @@ function collabToPillar(){
     }
 
     if(flappyY <= topPlrY && flappyX >= topPlrX || flappyY >= BtmPlrY && flappyX >= BtmPlrX){
-        gameOver();
+        gameOverBox();
         val = 0;
     }
     
@@ -79,8 +79,33 @@ function collabToPillar(){
 
 
 
+function gameOverBox(){
+
+    flappyObj.isAnimiRun = false;
+    flappyObj.isPillarMove = false;
+
+    let gameOverBox = document.querySelector("[gameover-box]");
+    let restartBtn = document.querySelector("[restartBtn]");
+
+    gameOverBox.style.display = "flex";
+
+    restartBtn.addEventListener('click',function(e){
+        gameOver();
+        gameOverBox.style.display = "none";
+    });
 
 
+    innerBoard.addEventListener("click",function(e){
+        e.stopPropagation();
+    })
+
+    
+    document.addEventListener("keypress",function(e){
+        e.stopPropagation()
+    });
+    
+
+}
 
 
 

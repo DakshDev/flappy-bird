@@ -5,7 +5,7 @@ import {board, innerBoard, flappyBird, flappyObj, flappyBirdInitial} from "../sc
 
 function controller(){
     document.addEventListener("keypress",(e)=>{if(e.key == " ") coltroll()});
-    document.addEventListener("click",()=>{coltroll()});
+    innerBoard.addEventListener("click",()=>{coltroll()});
 }
 
 function coltroll(){

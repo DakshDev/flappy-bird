@@ -76,12 +76,32 @@ html,body{
     display: flex;
     justify-content: flex-end;
 }
-
-img{
-    width: 80px;
-}
 [pillars] div img{
+    width: 80px;
     margin: 0px 150px;
     position: relative;
     right: -500px;
+}
+[gameover-box]{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+[restartBtn]{
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #E86101;
+    font-size: 18px;
+    border: 2px solid black;
+    font-weight: bold;
+    cursor: pointer;
 }
