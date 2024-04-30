@@ -12,7 +12,7 @@ function gameOver(){
     flappyBird.style.animation = "flappyAnimi 1s infinite";
 
     flappyObj.initTopPerceVal = innerBoard.clientHeight / 2;
-    flappyObj.initLeftPercVal = 30;
+    flappyObj.initLeftPercVal = 20;
     flappyObj.flappyBeforeRotate = -20;
     flappyObj.flappyAfterRotate = 20;
     flappyObj.isAnimiRun  = true;

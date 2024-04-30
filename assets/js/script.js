@@ -11,7 +11,7 @@ let flappyBird = document.querySelector("[flappy_bird]");
 
 let flappyObj = {
     initTopPerceVal: innerBoard.clientHeight / 2,
-    initLeftPercVal: 30,
+    initLeftPercVal: 20,
     flappyBeforeRotate: -20,
     flappyAfterRotate: 20,
     isAnimiRun : true,
